@@ -11,8 +11,8 @@ start_date = '01/03/2019'
 end_date = '30/09/2019'
 variable = 57  # MP2.5
 stations = [95, 72, 99]
-file_names = ['data/usp', 'data/sefaz', 'data/pinheiros']
-file_names_met = ['data/sefaz_met', 'data/pinheiros_met']
+file_names = ['../data/usp', '../data/sefaz', '../data/pinheiros']
+file_names_met = ['../data/sefaz_met', '../data/pinheiros_met']
 
 for station, file_name in zip(stations, file_names):
     ql.cetesb_data_download(user, password,
