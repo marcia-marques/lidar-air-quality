@@ -111,7 +111,7 @@ def cetesb_data_download(cetesb_login, cetesb_password,
     dat_complete = all_date.join(dat)
     dat_complete = dat_complete.drop(['day', 'hour'], axis=1)
     if file_name:
-        file_name = file_name + ' .csv'
+        file_name = file_name + '.csv'
     else:
         file_name = str(parameter) + '_' + str(station)
     if csv:
@@ -178,7 +178,7 @@ def all_met(cetesb_login, cetesb_password, start_date, end_date, station,
         all_met_df['wd'].where(filter_flags, inplace=True)
 
     if file_name:
-        file_name = file_name + ' .csv'
+        file_name = file_name + '.csv'
     else:
         file_name = 'all_met_' + str(station) + '.csv'
 
