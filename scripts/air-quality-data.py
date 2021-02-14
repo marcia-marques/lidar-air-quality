@@ -7,21 +7,33 @@ https://qualar.cetesb.sp.gov.br/qualar/home.do
 qualar package was developed by @quishqa
 """
 
-start_date = '01/03/2019'
-end_date = '30/09/2019'
-variable = 57  # MP2.5
-stations = [95, 72, 99]
-file_names = ['../data/usp', '../data/sefaz', '../data/pinheiros']
-file_names_met = ['../data/sefaz_met', '../data/pinheiros_met']
+start_date = '31/12/2018'
+end_date = '01/01/2020'
+# variable = 57  # MP2.5
+# variable = 12  # MP 10
+stations = [95, 72, 99, 91, 85, 270, 96, 63, 103, 83, 73, 64]
+file_names = ['../data/usp', '../data/dpedro', '../data/pinheiros',
+              '../data/ccesar', '../data/mooca', '../data/remedios',
+              '../data/senhora', '../data/santana', '../data/taboao',
+              '../data/ibirapuera', '../data/congonhas', '../data/samaro']
 
+# MP2.5
 for station, file_name in zip(stations, file_names):
     ql.cetesb_data_download(user, password,
                             start_date, end_date,
-                            variable, station,
-                            file_name, csv=True)
+                            57, station,
+                            file_name+'_mp25', csv=True)
 
-for station, file_name in zip(stations[1:], file_names_met):
+# MP10
+for station, file_name in zip(stations, file_names):
+    ql.cetesb_data_download(user, password,
+                            start_date, end_date,
+                            12, station,
+                            file_name+'_mp10', csv=True)
+
+# Meteo
+for station, file_name in zip(stations, file_names):
     ql.all_met(user, password,
                start_date, end_date,
                station,
-               file_name=file_name, csv_met=True)
+               file_name=file_name+'_met', csv_met=True)
