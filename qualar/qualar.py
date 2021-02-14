@@ -170,7 +170,7 @@ def all_met(cetesb_login, cetesb_password, start_date, end_date, station,
         'wd': wd.val
     }, index=tc.index)
 
-    all_met_df.index = all_met_df.index.tz_localize('America/Sao_Paulo')
+    # all_met_df.index = all_met_df.index.tz_localize('America/Sao_Paulo')
 
     # Filtering 777 and 888 values
     if rm_flag:
