@@ -27,7 +27,7 @@ def gantt_data(path, usecols, var, pos):
     df['avail'] = df['avail'].map({False: pos})  # populate with graph position
     return df
 
-
+'''
 # MP2.5
 df_mp25 = pd.DataFrame()
 for i, file_name in enumerate(sorted(list(glob.glob('../data/*_mp25.csv')), reverse=True)):
@@ -67,7 +67,7 @@ plt.title('CETESB stations MP10 availability')
 plt.tight_layout()
 # plt.show()
 plt.savefig('../plots/gantt-chart-mp10.png')
-
+'''
 # Meteo
 df_met = pd.DataFrame()
 names_met = ['Santana', 'Pinheiros', 'Parque D. Pedro II', 'Moóca', 'Marg.Tietê-Pte Remédios']
@@ -77,7 +77,7 @@ for i, file_name in enumerate(sorted(list(glob.glob('../data/*_met.csv')), rever
     df_met = pd.concat([df_met, temp])
 
 plt.rcParams["figure.dpi"] = 600
-fig, ax = plt.subplots(figsize=(12, 4.5))
+fig, ax = plt.subplots(figsize=(12, 3))
 for name in names_met:
     plt.scatter(df_met[df_met.name == name].index, df_met[df_met.name == name].avail,
                 s=30 ** 2, marker="|", color="darkblue")
