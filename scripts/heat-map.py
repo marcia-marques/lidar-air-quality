@@ -3,6 +3,8 @@ import glob
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+plt.rcParams["figure.dpi"] = 150
+
 # MP2.5
 df_mp25 = pd.DataFrame()
 for i, file_name in enumerate(sorted(list(glob.glob('../data/*_mp25.csv')), reverse=True)):

@@ -28,6 +28,8 @@ def gantt_data(path, usecols, var, pos):
     return df
 
 
+plt.rcParams["figure.dpi"] = 150
+
 # MP2.5
 df_mp25 = pd.DataFrame()
 for i, file_name in enumerate(sorted(list(glob.glob('../data/*_mp25.csv')), reverse=True)):
@@ -35,7 +37,6 @@ for i, file_name in enumerate(sorted(list(glob.glob('../data/*_mp25.csv')), reve
     df_mp25 = pd.concat([df_mp25, temp])
 names_mp25 = sorted([value for value in df_mp25.name.unique() if type(value) != float], reverse=True)
 
-plt.rcParams["figure.dpi"] = 600
 fig, ax = plt.subplots(figsize=(12, 4.5))
 for name in names_mp25:
     plt.scatter(df_mp25[df_mp25.name == name].index, df_mp25[df_mp25.name == name].avail,
@@ -55,7 +56,6 @@ for i, file_name in enumerate(sorted(list(glob.glob('../data/*_mp10.csv')), reve
     df_mp10 = pd.concat([df_mp10, temp])
 names_mp10 = sorted([value for value in df_mp10.name.unique() if type(value) != float], reverse=True)
 
-plt.rcParams["figure.dpi"] = 600
 fig, ax = plt.subplots(figsize=(12, 4.5))
 for name in names_mp10:
     plt.scatter(df_mp10[df_mp10.name == name].index, df_mp10[df_mp10.name == name].avail,
@@ -76,7 +76,6 @@ for i, file_name in enumerate(sorted(list(glob.glob('../data/*_met.csv')), rever
     temp['name'] = names_met[i]
     df_met = pd.concat([df_met, temp])
 
-plt.rcParams["figure.dpi"] = 600
 fig, ax = plt.subplots(figsize=(12, 3))
 for name in names_met:
     plt.scatter(df_met[df_met.name == name].index, df_met[df_met.name == name].avail,
